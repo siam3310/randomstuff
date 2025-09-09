@@ -72,16 +72,9 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="google-site-verification" content="LoF83UfXKAifVwvOh2jyo28MDORllgqLrNlo9QiRfmQ" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R47X3GFE5L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-R47X3GFE5L');
-</script>
+
+
     <meta name="theme-color" content="#f4f1ec" />
     <link rel="alternate" type="application/rss+xml" title={`${RSS_PREFIX}${channel?.title}`} href={RSS_URL} />
     <style is:inline>
