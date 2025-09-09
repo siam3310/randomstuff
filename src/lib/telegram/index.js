@@ -6,8 +6,8 @@ import prism from '../prism'
 import { getEnv } from '../env'
 
 const cache = new LRUCache({
-  ttl: 1000 * 60 * 5, // 5 minutes
-  maxSize: 50 * 1024 * 1024, // 50MB
+  ttl: 1000 * 60 * 60 * 3, // 3 hours
+  maxSize: 3 * 1024 * 1024 * 1024, // 3GB
   sizeCalculation: (item) => {
     return JSON.stringify(item).length
   },
