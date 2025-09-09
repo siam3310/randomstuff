@@ -66,15 +66,29 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
     }
   })
 ---
+
 <!doctype html>
 <html lang={locale ?? 'en'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google-site-verification" content="LoF83UfXKAifVwvOh2jyo28MDORllgqLrNlo9QiRfmQ" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R47X3GFE5L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R47X3GFE5L');
+</script>
     <meta name="theme-color" content="#f4f1ec" />
     <link rel="alternate" type="application/rss+xml" title={`${RSS_PREFIX}${channel?.title}`} href={RSS_URL} />
-
-    <!-- SEO -->
+    <style is:inline>
+      @view-transition {
+        navigation: auto; /* enabled */
+      }
+    </style>
     <SEO
       titleTemplate={`%s | ${channel?.title}`}
       titleDefault={[channel?.title, seoParams.description].filter(Boolean).join(' - ')}
@@ -84,143 +98,74 @@ const navs = (getEnv(import.meta.env, Astro, 'NAVS') || '')
       }}
       {...seoParams}
     />
-
-    <!-- Smooth page transition -->
-    <style is:inline>
-      @view-transition {
-        navigation: auto;
-      }
-      body {
-        background: var(--background-color);
-        color: var(--foreground-color);
-        font-family: system-ui, sans-serif;
-        line-height: 1.6;
-      }
-      #container {
-        display: flex;
-        max-width: 1000px;
-        margin: auto;
-        padding: 20px;
-        gap: 20px;
-      }
-      #main-container {
-        flex: 1;
-      }
-      #aside-container {
-        width: 250px;
-        min-width: 220px;
-      }
-      /* timeline look */
-      .feed {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      .feed-item {
-        background: #fff;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: var(--shadows);
-        border-left: 4px solid var(--link-color);
-        transition: transform 0.15s ease-in-out;
-      }
-      .feed-item:hover {
-        transform: translateY(-3px);
-      }
-      /* aside nav */
-      .nav {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .nav-link {
-        font-weight: 600;
-        color: #333;
-      }
-      .nav-link.current {
-        color: var(--link-color);
-      }
-      .search-form {
-        margin-top: 1rem;
-      }
-      .copyright-wrap {
-        margin-top: 2rem;
-        font-size: 0.85rem;
-        color: #777;
-      }
-      /* back-to-top */
-      #back-to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: var(--link-color);
-        border-radius: 50%;
-        padding: 10px;
-        box-shadow: var(--shadows);
-        transition: opacity 0.2s ease-in-out;
-      }
-      #back-to-top img {
-        filter: invert(1);
-        width: 20px;
-        height: 20px;
-      }
-    </style>
     <Fragment set:html={HEADER_INJECT} />
   </head>
 
   <body>
     <div id="wrapper">
       <div id="container">
-        <!-- main timeline -->
         <div id="main-container">
-          <div class="feed">
-            <slot /> <!-- timeline posts -->
-          </div>
+          <slot />
         </div>
-
-        <!-- aside nav -->
         <div id="aside-container">
           <slot name="aside">
             <div class="nav">
               <div class="nav-item">
-                <a href={SITE_URL} title={channel?.title} class={`nav-link ${pathname === '/' ? 'current' : ''}`}>Home</a>
+                <a href={SITE_URL} title={channel?.title} class={`nav-link ${pathname === '/' ? 'current' : ''}`}>
+                  Home
+                </a>
               </div>
-              {TAGS ? (
-                <div class="nav-item">
-                  <a href={`${SITE_URL}tags`} class={`nav-link ${pathname === '/tags' ? 'current' : ''}`}>Tags</a>
-                </div>
-              ) : null}
-              {LINKS ? (
-                <div class="nav-item">
-                  <a href={`${SITE_URL}links`} class={`nav-link ${pathname === '/links' ? 'current' : ''}`}>Links</a>
-                </div>
-              ) : null}
-              {navs.map((nav) => (
-                <div class="nav-item">
-                  <a href={nav.href} title={nav.title} target="_blank" rel="noopener" class="nav-link">{nav.title}</a>
-                </div>
-              ))}
+              {
+                TAGS ? (
+                  <div class="nav-item">
+                    <a
+                      href={`${SITE_URL}tags`}
+                      title="Tags"
+                      class={`nav-link ${pathname === '/tags' ? 'current' : ''}`}
+                    >
+                      Tags
+                    </a>
+                  </div>
+                ) : null
+              }
+              {
+                LINKS ? (
+                  <div class="nav-item">
+                    <a
+                      href={`${SITE_URL}links`}
+                      title="Links"
+                      class={`nav-link ${pathname === '/links' ? 'current' : ''}`}
+                    >
+                      Links
+                    </a>
+                  </div>
+                ) : null
+              }
+              {
+                navs.map((nav) => (
+                  <div class="nav-item">
+                    <a href={nav.href} title={nav.title} target="_blank" rel="noopener" class="nav-link">
+                      {nav.title}
+                    </a>
+                  </div>
+                ))
+              }
             </div>
-
-            <!-- search -->
+            <input class="search-icon" name="icon" type="checkbox" placeholder="Search" />
             <form class="search-form" action={searchAction} method="get">
               {GOOGLE_SEARCH_SITE ? <input type="hidden" name="as_sitesearch" value={GOOGLE_SEARCH_SITE} /> : null}
-              <input type="text" name="q" placeholder="Search..." />
+              <input type="text" name="q" placeholder="Search" />
             </form>
-
             <div class="copyright-wrap">
-              © Live Stream
+              © no rights reserved
             </div>
           </slot>
         </div>
       </div>
     </div>
-
-    <!-- back to top -->
     <a href="#wrapper" id="back-to-top" aria-label="Back to top">
       <img {...backToTopIcon} alt="Back to Top" />
     </a>
-
     <Fragment set:html={FOOTER_INJECT} />
   </body>
 </html>
