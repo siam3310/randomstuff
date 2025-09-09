@@ -4,15 +4,6 @@
               This RSS feed for the
               <a class="link intent-neutral variant-animated !text-caption font-bold" title="{$title}" href="{$link}" target="_blank" rel="noopener noreferrer"><xsl:value-of select="$title"/></a>
               website.
-            </p><p class="text-body text-sm hidden" id="subscribe-links">
-              You can subscribe this RSS feed by
-              <a class="link intent-neutral variant-animated font-bold" title="Feedly" data-href="https://feedly.com/i/subscription/feed/" target="_blank" rel="noopener noreferrer">Feedly</a>,
-              <a class="link intent-neutral variant-animated font-bold" title="Inoreader" data-href="https://www.inoreader.com/feed/" target="_blank" rel="noopener noreferrer">Inoreader</a>,
-              <a class="link intent-neutral variant-animated font-bold" title="Newsblur" data-href="https://www.newsblur.com/?url=" target="_blank" rel="noopener noreferrer">Newsblur</a>,
-              <a class="link intent-neutral variant-animated font-bold" title="Follow" data-href="follow://add?url=" rel="noopener noreferrer">Follow</a>,
-              <a class="link intent-neutral variant-animated font-bold" title="RSS Reader" data-href="feed:" data-raw="true" rel="noopener noreferrer">RSS Reader</a>
-              or
-              <a class="link intent-neutral variant-animated font-bold" title="{$title} 's feed source" data-href="" data-raw="true" rel="noopener noreferrer">View Source</a>.
             </p><script>
               document.addEventListener('DOMContentLoaded', function () {
                 document.querySelectorAll('a[data-href]').forEach(function (a) {
@@ -34,4 +25,4 @@
                           </a></xsl:if></div></details></article></xsl:for-each></xsl:when></xsl:choose></section><hr class="my-6"/><footer><div class="flex flex-col justify-between space-y-4 md:flex-row md:space-y-0"><div class="space-y-4"><a class="flex text-2xl font-bold" href="https://rss.beauty" title="RSS.Beauty"><span class="text-title icon-[tabler--rss] mr-1 h-8 w-8"/><span class="text-title">RSS</span>.
                   <span class="from-primary-600 to-accent-400 bg-gradient-to-r bg-clip-text text-transparent">Beauty</span></a><div class="text-caption">Make Your RSS Beautiful</div></div><div class="space-y-4"><div class="flex flex-wrap gap-x-4 gap-y-2"><a class="link intent-neutral variant-animated" target="_blank" title="GitHub" href="https://github.com/ccbikai/RSS.Beauty">GitHub</a><a class="link intent-neutral variant-animated" target="_blank" title="X/Twitter" href="https://404.li/kai">X/Twitter</a></div><div class="text-title flex gap-1 overflow-hidden font-medium">
                   Made with ❤️‍🔥 By
-                  <div class="flex items-start justify-center gap-2 text-center font-semibold sm:gap-1"><div class="block"><a href="https://html.zone" target="_blank" title="HTML.ZONE" class="block pb-2">HTML.ZONE</a><div class="-mt-5 grow overflow-hidden"><svg class="w-24" aria-hidden="true" height="22" viewBox="0 0 283 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.24715 19.3744C72.4051 10.3594 228.122 -4.71194 281.724 7.12332" stroke="url(#paint0_linear_pl)" stroke-width="4"/><defs><linearGradient id="paint0_linear_pl" x1="282" y1="5.49999" x2="40" y2="13" gradientUnits="userSpaceOnUse"><stop stop-color="#facc15"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs></svg></div></div></div></div></div></div></footer></main></body></html></xsl:template></xsl:stylesheet>
+                  <div class="flex items-start justify-center gap-2 text-center font-semibold sm:gap-1"><div class="block"><a href="https://html.zone" target="_blank" title="HTML.ZONE" class="block pb-2">Siam</a><div class="-mt-5 grow overflow-hidden"><svg class="w-24" aria-hidden="true" height="22" viewBox="0 0 283 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.24715 19.3744C72.4051 10.3594 228.122 -4.71194 281.724 7.12332" stroke="url(#paint0_linear_pl)" stroke-width="4"/><defs><linearGradient id="paint0_linear_pl" x1="282" y1="5.49999" x2="40" y2="13" gradientUnits="userSpaceOnUse"><stop stop-color="#facc15"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs></svg></div></div></div></div></div></div></footer></main></body></html></xsl:template></xsl:stylesheet>
